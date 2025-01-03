@@ -882,6 +882,17 @@ class UNet2DConditionLoadersMixin:
 
         return attn_procs
 
+    def set_custome_attn_processor2_0(self):
+        from ..models.attention_processor import CustomAttnProcessor2_0
+
+        attn_procs = {}
+        for name in self.attn_processors.keys():
+            attn_procs[name] = CustomAttnProcessor2_0()
+        
+        self.set_attn_processor(attn_procs)
+
+        self.to(dtype=self.dtype, device=self.device)
+
     def _load_ip_adapter_weights(self, state_dicts, low_cpu_mem_usage=False):
         if not isinstance(state_dicts, list):
             state_dicts = [state_dicts]

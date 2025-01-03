@@ -6178,6 +6178,7 @@ ADDED_KV_ATTENTION_PROCESSORS = (
 CROSS_ATTENTION_PROCESSORS = (
     AttnProcessor,
     AttnProcessor2_0,
+    CustomAttnProcessor2_0,
     XFormersAttnProcessor,
     SlicedAttnProcessor,
     IPAdapterAttnProcessor,
